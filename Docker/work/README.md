@@ -88,3 +88,6 @@ USER_DB='mongodb://127.0.0.1:6000/UserDB'
 
 docker exec -it a47 /bin/sh
 docker rmi
+docker build . -t test/db --network=host
+docker system down
+docker container run -p 8080:8080 -d test/db
